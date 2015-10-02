@@ -1,5 +1,6 @@
 var h = require('virtual-dom/h');
 var map = require('lodash.map');
+var extend = require('xtend');
 
 var spinner = require('./lib/spinner.js');
 
@@ -15,10 +16,11 @@ module.exports = Sidebar;
  * }
  */
 function Sidebar(opts) {
+  var copy = extend(opts);
   var state = {
-    loading: opts.loading,
-    activeItem: opts.activeItem,
-    items: opts.items
+    loading: copy.loading,
+    activeItem: copy.activeItem,
+    items: copy.items
   };
 
   return state;
