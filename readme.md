@@ -10,7 +10,7 @@ virtual-dom sidebar component
 
 ```js
 var createElement = require('virtual-dom/create-element');
-var Sidebar = require('../Sidebar.js');
+var Sidebar = require('vdom-sidebar');
 
 var items = {
   examplePage: { href: '/example', name: 'Example' },

@@ -1,7 +1,7 @@
 {
   "name": "vdom-sidebar",
   "description": "virtual-dom sidebar component",
-  "main": "index.js",
+  "main": "Sidebar.js",
   "version": "0.0.2",
   "browserify": {
     "transform": []
