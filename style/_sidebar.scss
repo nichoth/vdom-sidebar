@@ -1,7 +1,8 @@
 @import "../node_modules/css-spinner/_spinner.scss";
 
 $sidebar-width: 240px!default;
-$sidebar-active: pink;
+$sidebar-active: pink!default;
+$sidebar-bg: gray!default;
 
 $sidebar-item-height: 18px;
 
@@ -16,7 +17,7 @@ $sidebar-item-height: 18px;
   padding: 0;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  background-color: gray,
+  background-color: $sidebar-bg,
 }
 
 ul.vdom-sidebar-nav {
