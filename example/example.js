@@ -10,7 +10,7 @@ var sidebarState = Sidebar({
   items: items
 });
 
-var vel = Sidebar.render(sidebarState);
-var el = createElement(vel);
+var virtualEl = Sidebar.render(sidebarState);
+var el = createElement(virtualEl);
 
 document.getElementById('content').appendChild(el);
