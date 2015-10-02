@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "version": "npm run build && git add style/style.css",
+    "version": "npm run sass && git add style/style.css",
     "build": "browserify -d example/example.js > example/bundle.js && npm run sass",
     "watch-js": "watchify example/example.js -o example/bundle.js -dv",
     "watch-sass": "node-sass --watch style/main.scss style/style.css",
