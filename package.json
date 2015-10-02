@@ -1,0 +1,37 @@
+{
+  "name": "vdom-sidebar",
+  "description": "virtual-dom sidebar component",
+  "main": "index.js",
+  "version": "0.0.0",
+  "browserify": {
+    "transform": []
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "version": "npm run build && git add style/style.css",
+    "build": "browserify -d example/example.js > example/bundle.js && npm run sass",
+    "watch-js": "watchify example/example.js -o example/bundle.js -dv",
+    "watch-sass": "node-sass --watch style/main.scss style/style.css",
+    "watch": "npm run watch-js & npm run watch-sass",
+    "dev": "npm run watch & npm run server",
+    "sass": "node-sass style/main.scss > style/style.css",
+    "server": "node server.js",
+    "demo": "browserify example/example.js > example/bundle.js && html-inline example/index.html | curl -sT- https://htmlb.in"
+  },
+  "author": "Nick Thomas <nichoth@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nichoth/vdom-sidebar.git"
+  },
+  "license": "ISC",
+  "peerDependencies": {},
+  "devDependencies": {
+    "ecstatic": "^1.1.0",
+    "node-sass": "^3.3.3"
+  },
+  "dependencies": {
+    "css-spinner": "0.0.2",
+    "lodash.map": "^3.1.4",
+    "virtual-dom": "^2.1.1"
+  }
+}

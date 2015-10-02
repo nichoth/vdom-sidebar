@@ -1,0 +1,105 @@
+@import "../node_modules/css-spinner/_spinner.scss";
+
+$sidebar-width: 240px!default;
+$sidebar-active: pink;
+
+$sidebar-item-height: 18px;
+
+
+/* vdom-sidebar */
+.vdom-sidebar {
+  position: fixed;
+  left: 0;
+  display: block;
+  width: $sidebar-width;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  background-color: gray,
+}
+
+ul.vdom-sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  & > li {
+    list-style-type: none;
+    position: relative;
+    &:after {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      content: "";
+      background: white;
+    }
+    &.active {
+      background: $sidebar-active;
+      &:after {
+        display: block;
+      }
+      // & > a, & > button {
+      //   background: $brand-primary;
+      // }
+    }
+    &:hover {
+      &:after {
+        display: block;
+      }
+    }
+    a, button {
+      width: 100%;
+      text-align: left;
+      border: 0 none transparent;
+      background: transparent;
+      display: block;
+      font-size: 20px;
+      color: #FFF;
+      padding: $sidebar-item-height 20px;
+      text-decoration: none;
+      white-space: nowrap;
+      font-weight: 300;
+    }
+    // & > button {
+    //   &:after {
+    //     position: absolute;
+    //     right: 15px;
+    //     top: 25px;
+    //     content: "\e607";
+    //     font-size: 1.6rem;
+    //   }
+    // }
+    // & > ul {
+    //   list-style: none;
+    //   margin: 0;
+    //   padding: 0;
+    //   li {
+    //     a {
+    //       padding: 18px 20px 18px 40px;
+    //     }
+    //     &.active .jobs,
+    //     .jobs:hover {
+    //       background-color: $brand-blue-darker;
+    //     }
+    //     &.active .scripts,
+    //     .scripts:hover {
+    //       background-color: $brand-purple;
+    //     }
+    //     &.active .users,
+    //     .users:hover {
+    //       background-color: $brand-pink;
+    //     }
+    //     &.active .objects,
+    //     .objects:hover {
+    //       background-color: $brand-green;
+    //     }
+    //     &.active .hierarchy,
+    //     .hierarchy:hover {
+    //       background-color: $brand-brown;
+    //     }
+    //   }
+    // }
+  }
+}
