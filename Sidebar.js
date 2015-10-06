@@ -28,8 +28,7 @@ function Sidebar(opts) {
   return state;
 }
 
-Sidebar.render = function render(observableState) {
-  var state = observableState();
+Sidebar.render = function render(state) {
   var activeItem = state.activeItem;
   var items = state.items;
 
