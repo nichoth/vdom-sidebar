@@ -13,7 +13,7 @@ module.exports = Sidebar;
  *   loading: false,
  *   activeItem: 'myItem',
  *   items: {
- *     myItem: { href: '', name: '' }
+ *     myItem: { href: '', itemName: '' }
  *   }
  * }
  */
@@ -37,7 +37,7 @@ Sidebar.render = function render(state) {
     var active = activeItem ? (k === activeItem) : false;
 
     return h('li'+(active ? '.active' : ''), {key: k}, [
-      h( 'a', { href: item.href }, [item.name] ),
+      h( 'a', { href: item.href }, [item.itemName] ),
       (state.loading && active ? spinner() : '')
     ]);
 

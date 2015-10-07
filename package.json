@@ -9,7 +9,9 @@
   "keywords": [
     "virtual-dom",
     "component",
+    "mercury",
     "ui",
+    "navigation",
     "sidebar"
   ],
   "scripts": {
