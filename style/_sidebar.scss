@@ -20,12 +20,48 @@ $sidebar-item-height: 18px;
   background-color: $sidebar-bg,
 }
 
+// nested menus
 ul.vdom-sidebar-children {
   padding: 0;
   li {
     padding-left: 2em;
   }
+
+  // expand or hide
+  display: none;
+  .is-expanded {
+    > a {
+      color: red;
+    }
+    display: block;
+  }
 }
+
+
+
+
+
+// .accordion {
+//   > li > a {
+//     font-weight: normal;
+//   }
+
+//   ul.submenu {
+//     display: none;
+//   }
+
+//   .is-expanded {
+//     > a {
+//       color: red;
+//     }
+
+//     display: block;
+//   }
+// }
+
+
+
+
 
 ul.vdom-sidebar-nav {
   list-style: none;
@@ -59,17 +95,20 @@ ul.vdom-sidebar-nav {
       }
     }
     a, button {
-      width: 100%;
+      width: 60%;
       text-align: left;
       border: 0 none transparent;
       background: transparent;
-      display: block;
+      display: inline-block;
       font-size: 20px;
       color: #FFF;
       padding: $sidebar-item-height 20px;
       text-decoration: none;
       white-space: nowrap;
       font-weight: 300;
+      &.button-expand {
+        display: inline;
+      }
     }
     // & > button {
     //   &:after {

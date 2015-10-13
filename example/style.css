@@ -74,9 +74,14 @@
   background-color: gray; }
 
 ul.vdom-sidebar-children {
-  padding: 0; }
+  padding: 0;
+  display: none; }
   ul.vdom-sidebar-children li {
     padding-left: 2em; }
+  ul.vdom-sidebar-children .is-expanded {
+    display: block; }
+    ul.vdom-sidebar-children .is-expanded > a {
+      color: red; }
 
 ul.vdom-sidebar-nav {
   list-style: none;
@@ -101,14 +106,16 @@ ul.vdom-sidebar-nav {
     ul.vdom-sidebar-nav li:hover:after {
       display: block; }
     ul.vdom-sidebar-nav li a, ul.vdom-sidebar-nav li button {
-      width: 100%;
+      width: 60%;
       text-align: left;
       border: 0 none transparent;
       background: transparent;
-      display: block;
+      display: inline-block;
       font-size: 20px;
       color: #FFF;
       padding: 18px 20px;
       text-decoration: none;
       white-space: nowrap;
       font-weight: 300; }
+      ul.vdom-sidebar-nav li a.button-expand, ul.vdom-sidebar-nav li button.button-expand {
+        display: inline; }

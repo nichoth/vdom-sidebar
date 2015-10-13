@@ -47,11 +47,21 @@ Sidebar.render = function render(state) {
 
     return h('li'+(active ? '.active' : ''), {key: k}, [
       h( 'a', { href: item.href }, [item.itemName] ),
+      h('a.button-expand', {
+        href: '#',
+        onclick: expandMenu
+      }, ['+']),
       (state.loading && active ? spinner() : ''),
       childrenEl
     ]);
 
   });
+
+  function expandMenu(ev) {
+    ev.preventDefault();
+    var li = ev.target.parentElement;
+    li.querySelector('ul.vdom-sidebar-children').className += 'is-expanded';
+  }
 
   return h('div.vdom-sidebar', [
     h('ul.vdom-sidebar-nav', links)
