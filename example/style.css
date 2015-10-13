@@ -78,9 +78,9 @@ ul.vdom-sidebar-children {
   display: none; }
   ul.vdom-sidebar-children li {
     padding-left: 2em; }
-  ul.vdom-sidebar-children .is-expanded {
+  ul.vdom-sidebar-children.is-expanded {
     display: block; }
-    ul.vdom-sidebar-children .is-expanded > a {
+    ul.vdom-sidebar-children.is-expanded > a {
       color: red; }
 
 ul.vdom-sidebar-nav {

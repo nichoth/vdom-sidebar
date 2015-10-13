@@ -36,12 +36,14 @@
   "peerDependencies": {},
   "devDependencies": {
     "ecstatic": "^1.1.0",
+    "main-loop": "^3.2.0",
     "node-sass": "^3.3.3"
   },
   "dependencies": {
     "@nichoth/state": "0.0.0",
     "css-spinner": "0.0.2",
     "lodash.map": "^3.1.4",
+    "lodash.reduce": "^3.1.2",
     "observ": "^0.2.0",
     "observ-struct": "^6.0.0",
     "virtual-dom": "^2.1.1",

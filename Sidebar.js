@@ -1,67 +1,39 @@
 var h = require('virtual-dom/h');
 var map = require('lodash.map');
+var reduce = require('lodash.reduce');
 var state = require('@nichoth/state');
-var observ = require('observ');
 var struct = require('observ-struct');
 
 var spinner = require('./lib/spinner.js');
+var SidebarItem = require('./lib/SidebarItem.js');
 
 module.exports = Sidebar;
 
-/**
- * opts = {
- *   loading: false,
- *   activeItem: 'myItem',
- *   items: {
- *     myItem: { href: '', itemName: '' }
- *   }
- * }
- */
+
 function Sidebar(opts) {
 
+  var itemsState = struct(
+    reduce(opts.items || {}, function(acc, item, k) {
+      acc[k] = SidebarItem({
+        item: item,
+        active: (k === opts.activeItem)
+      });
+      return acc;
+    }, {})
+  );
+
   var s = state({
-    loading: observ(opts.loading || false),
-    activeItem: observ(opts.activeItem || null),
-    items: struct(opts.items)
+    items: itemsState
   });
 
   return s;
 }
 
 Sidebar.render = function render(state) {
-  console.log(state);
-  var activeItem = state.activeItem;
-  var items = state.items;
 
-  var links = map(items, function(item, k) {
-
-    var active = activeItem ? (k === activeItem) : false;
-
-    var children = map(item.children || {}, function(child, key) {
-      var active = activeItem ? (key === activeItem) : false;
-      return h('li.vdom-sidebar-child'+(active ? '.active' : ''), [
-        h('a', {href: child.href}, [child.itemName])
-      ]);
-    });
-    var childrenEl = h('ul.vdom-sidebar-children', children);
-
-    return h('li'+(active ? '.active' : ''), {key: k}, [
-      h( 'a', { href: item.href }, [item.itemName] ),
-      h('a.button-expand', {
-        href: '#',
-        onclick: expandMenu
-      }, ['+']),
-      (state.loading && active ? spinner() : ''),
-      childrenEl
-    ]);
-
+  var links = map(state.items, function(item) {
+    return SidebarItem.render(item);
   });
-
-  function expandMenu(ev) {
-    ev.preventDefault();
-    var li = ev.target.parentElement;
-    li.querySelector('ul.vdom-sidebar-children').className += 'is-expanded';
-  }
 
   return h('div.vdom-sidebar', [
     h('ul.vdom-sidebar-nav', links)

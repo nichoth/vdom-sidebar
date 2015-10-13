@@ -1,4 +1,4 @@
-var createElement = require('virtual-dom/create-element');
+var vdom = require('virtual-dom');
 var Sidebar = require('../Sidebar.js');
 
 var items = {
@@ -20,7 +20,10 @@ var sidebarState = Sidebar({
   activeItem: 'nestedPage'
 });
 
-var virtualEl = Sidebar.render(sidebarState());
-var el = createElement(virtualEl);
+var loop = require('main-loop')(sidebarState(), Sidebar.render, vdom);
+sidebarState(loop.update);
 
-document.getElementById('content').appendChild(el);
+// var virtualEl = Sidebar.render(sidebarState());
+// var el = createElement(virtualEl);
+
+document.getElementById('content').appendChild(loop.target);

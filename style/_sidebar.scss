@@ -29,7 +29,7 @@ ul.vdom-sidebar-children {
 
   // expand or hide
   display: none;
-  .is-expanded {
+  &.is-expanded {
     > a {
       color: red;
     }
