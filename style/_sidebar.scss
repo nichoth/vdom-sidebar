@@ -20,11 +20,18 @@ $sidebar-item-height: 18px;
   background-color: $sidebar-bg,
 }
 
+ul.vdom-sidebar-children {
+  padding: 0;
+  li {
+    padding-left: 2em;
+  }
+}
+
 ul.vdom-sidebar-nav {
   list-style: none;
   margin: 0;
   padding: 0;
-  & > li {
+  li {
     list-style-type: none;
     position: relative;
     &:after {

@@ -37,9 +37,18 @@ Sidebar.render = function render(state) {
 
     var active = activeItem ? (k === activeItem) : false;
 
+    var children = map(item.children || {}, function(child, key) {
+      var active = activeItem ? (key === activeItem) : false;
+      return h('li.vdom-sidebar-child'+(active ? '.active' : ''), [
+        h('a', {href: child.href}, [child.itemName])
+      ]);
+    });
+    var childrenEl = h('ul.vdom-sidebar-children', children);
+
     return h('li'+(active ? '.active' : ''), {key: k}, [
       h( 'a', { href: item.href }, [item.itemName] ),
-      (state.loading && active ? spinner() : '')
+      (state.loading && active ? spinner() : ''),
+      childrenEl
     ]);
 
   });
