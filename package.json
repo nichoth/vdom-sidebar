@@ -39,6 +39,7 @@
     "node-sass": "^3.3.3"
   },
   "dependencies": {
+    "@nichoth/state": "0.0.0",
     "css-spinner": "0.0.2",
     "lodash.map": "^3.1.4",
     "observ": "^0.2.0",

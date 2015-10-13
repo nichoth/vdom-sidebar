@@ -1,8 +1,8 @@
 var h = require('virtual-dom/h');
 var map = require('lodash.map');
-var extend = require('xtend');
+var state = require('@nichoth/state');
 var observ = require('observ');
-var observStruct = require('observ-struct');
+var struct = require('observ-struct');
 
 var spinner = require('./lib/spinner.js');
 
@@ -18,17 +18,18 @@ module.exports = Sidebar;
  * }
  */
 function Sidebar(opts) {
-  var copy = extend(opts);
-  var state = observStruct({
-    loading: observ(copy.loading || false),
-    activeItem: observ(copy.activeItem),
-    items: observStruct(copy.items || {})
+
+  var s = state({
+    loading: observ(opts.loading || false),
+    activeItem: observ(opts.activeItem || null),
+    items: struct(opts.items)
   });
 
-  return state;
+  return s;
 }
 
 Sidebar.render = function render(state) {
+  console.log(state);
   var activeItem = state.activeItem;
   var items = state.items;
 
